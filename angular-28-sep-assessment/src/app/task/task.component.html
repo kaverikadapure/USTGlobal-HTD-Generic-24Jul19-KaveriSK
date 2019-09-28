@@ -1,0 +1,36 @@
+<div class="container">
+        <div class="col-md-6 offset-md-2 mt-2 card card-body">
+            <form action="" #form='ngForm' (ngSubmit)='print(form)'>
+    
+                <div class="form-group">
+                    <input type="text" name="task" id="tt" class="form-control" placeholder="Add task" #task='ngModel' ngModel>
+                </div>
+                
+                <div class="btn-group col-md-12">
+                    <button type="submit" class="btn btn-primary" [disabled]='form.invalid'>Submit</button>
+                </div>
+    
+            </form>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="col-md-6 offset-md-2 mt-4">
+            <table class=" table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Sl no</th>
+                        <th>Task</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let ar of array; index as i'>
+                        <td>{{i+1}}</td>
+                        <td>{{ar.task}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteData()">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
